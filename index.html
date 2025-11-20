@@ -2,77 +2,38 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>인터랙티브 JS 기능</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      padding: 30px;
-    }
-
-    .box {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      width: 100%;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background: #4a90e2;
-      color: white;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #357bd8;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
+  <title>BMI 계산기 | 웹프로그래밍 과제</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="box">
-    <h2>간단한 JS 인터랙션 예제</h2>
+  <div class="overlay"></div>
 
-    <label>이름을 입력하세요:</label>
-    <input type="text" id="username" placeholder="예: 영옥" />
+  <div class="container">
+    <h1>BMI 계산기</h1>
+    <p class="subtitle">이름과 키, 몸무게를 입력하면 BMI를 계산해 드립니다.</p>
 
-    <button onclick="showMessage()">결과 보기</button>
+    <div class="form-group">
+      <label for="name">이름</label>
+      <input type="text" id="name" placeholder="예: 영옥" />
+    </div>
 
-    <div id="result"></div>
+    <div class="form-group">
+      <label for="height">키 (cm)</label>
+      <input type="number" id="height" placeholder="예: 165" />
+    </div>
+
+    <div class="form-group">
+      <label for="weight">몸무게 (kg)</label>
+      <input type="number" id="weight" placeholder="예: 55" />
+    </div>
+
+    <button id="calcBtn">BMI 계산하기</button>
+
+    <div id="result" class="result-box">
+      <!-- 결과 문장이 여기에 출력됨 -->
+    </div>
   </div>
 
-  <script>
-    function showMessage() {
-      const name = document.getElementById("username").value;
-
-      // 빈 입력 처리
-      if (name.trim() === "") {
-        document.getElementById("result").innerText = "이름을 입력해주세요!";
-        return;
-      }
-
-      // 동적 결과 출력
-      document.getElementById("result").innerText =
-        `안녕하세요, ${name}님! 오늘도 좋은 하루 보내세요 😊`;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
